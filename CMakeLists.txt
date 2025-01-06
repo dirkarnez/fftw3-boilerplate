@@ -1,18 +1,26 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.18)
 
-project(fftw3-boilerplate)
+# set(CMAKE_FIND_DEBUG_MODE TRUE)
+
+project("fftw3-boilerplate")
 
 # set(CMAKE_CXX_STANDARD 11)
 # set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(fftw3 REQUIRED PATHS "${FFTW3_ROOT}")
+# MUST BE in capital
+find_package(FFTW3 REQUIRED)
 
-SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
+if(fftw3_FOUND)
+    message(STATUS "fftw3_FOUND YES")
+else()
+    message(STATUS "NO")
+endif()
 
-include_directories(${FFTW3_INCLUDE_DIRS})
+# include_directories(${FFTW3_INCLUDE_DIRS})
 
 add_executable(${PROJECT_NAME}
     "src/main.cpp"
 )
 
 target_link_libraries(${PROJECT_NAME} FFTW3::fftw3)
+target_link_options(${PROJECT_NAME} PRIVATE "-static")
