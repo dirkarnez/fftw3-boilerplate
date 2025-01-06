@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.18)
 
 # set(CMAKE_FIND_DEBUG_MODE TRUE)
 
-project("fftw3-boilerplate")
+project("fftw3-playground")
 
 # set(CMAKE_CXX_STANDARD 11)
 # set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -10,8 +10,8 @@ project("fftw3-boilerplate")
 # MUST BE in capital
 find_package(FFTW3 REQUIRED)
 
-if(fftw3_FOUND)
-    message(STATUS "fftw3_FOUND YES")
+if(FFTW3_FOUND)
+    message(STATUS "FFTW3_FOUND YES")
 else()
     message(STATUS "NO")
 endif()
